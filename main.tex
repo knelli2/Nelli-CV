@@ -14,6 +14,7 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
+\usepackage{etoolbox}
 \usepackage[pdftex]{hyperref}
 \usepackage{fancyhdr}
 
@@ -38,15 +39,21 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-10pt}\scshape\raggedright\large
+  \vspace{-10pt}\scshape\raggedright\Large
 }{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
 
 %-------------------------
 % Custom commands
-\newcommand{\resumeItem}[2]{
+\newcommand{\resumeItem}[1]{
   \item\small{
+    #1 \vspace{-2pt}
+  }
+}
+\newcommand{\resumeSubItem}[2]{
+  \item{
     \textbf{#1}{: #2 \vspace{-2pt}}
   }
+  \vspace{-3pt}
 }
 
 \newcommand{\resumeItemWithoutTitle}[1]{
@@ -55,16 +62,35 @@
   }
 }
 
+
 \newcommand{\resumeSubheading}[4]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
-      \textit{#3} & \textit{#4} \\
-    \end{tabular*}\vspace{-5pt}
+    \end{tabular*}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    #3 & \textit{#4} \\
+    \end{tabular*}
+    \vspace{-5pt}
 }
 
+\newcommand{\resumeEducation}[5]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \end{tabular*}
+      #3: \textit{#4}\\
+      #3: \textit{#5}
+    \vspace{-5pt}
+}
 
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
+\newcommand{\resumeAward}[3]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1}{\ifstrequal{#3}{}{}{, #3}} & #2
+    \end{tabular*}\vspace{-15pt}
+}
+
 
 \renewcommand{\labelitemii}{$\circ$}
 
@@ -81,100 +107,80 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{{\LARGE Kyle C. Nelli}} & Email: \href{mailto:}{knelli@caltech.edu}\\
-  \href{https://github.com/knelli2}{Github: ~~github.com/knelli2} & Mobile:~~~1-847-494-5028 \\
+  \href{https://github.com/knelli2}{Github: ~github.com/knelli2} & Mobile:~~847-494-5028 \\
 \end{tabular*}
 
 %-----------EDUCATION-----------------
-\section{~~Education}
+\section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {University of Illinois Urbana-Champaign}{August 2016 - May 2020}
-      {Bachelor of Science; Engineering Physics}{Bachelor of Science; Astronomy}
-      {\scriptsize \textit{ \footnotesize{\newline{}\textbf{Courses:} Operating Systems, Data Structures, Analysis Of Algorithms, Artificial Intelligence, Machine Learning, Networking, Databases}}}
+      {California Institute of Technology (Caltech), CA}{August 2020 - Present}
+      {Doctorate of Philosophy: \textit{Physics}}{}
+    \resumeEducation
+      {University of Illinois Urbana-Champaign, IL}{August 2016 - May 2020}
+      {Bachelor of Science}{Engineering Physics}{Astronomy}
     \resumeSubHeadingListEnd
-	    
-\vspace{-5pt}
-\section{Skills Summary}
-	\resumeSubHeadingListStart
-	\resumeSubItem{Languages}{~~~~~~Python, PHP, C++, JavaScript, SQL, Bash, JAVA}
-	\resumeSubItem{Frameworks}{~~~~Scikit, NLTK, SpaCy, TensorFlow, Keras, Django, Flask, NodeJS, LAMP}
-	\resumeSubItem{Tools}{~~~~~~~~~~~~~~Kubernetes, Docker, GIT, PostgreSQL, MySQL, SQLite}
-	\resumeSubItem{Platforms}{~~~~~~~Linux, Web, Windows, Arduino, Raspberry, AWS, GCP, Alibaba Cloud, IBM Cloud}
-	\resumeSubItem{Soft Skills}{~~~~~~~Leadership, Event Management, Writing, Public Speaking, Time Management}
 
-\resumeSubHeadingListEnd
+
 \vspace{-5pt}
 \section{Experience}
   \resumeSubHeadingListStart
-    \resumeSubheading{Google Summer of Code - Submitty}{Remote}
-    {Student Developer (Full-time)}{May 2019 - Sep 2019}
+  \resumeSubheading{Teukolsky Group, Caltech}{May 2018 - July 2020}{Graduate Student}{}
     \resumeItemListStart
-        \resumeItem{Discussion Forum Upgrades}
-          {Refactor forum for performance to handle large databases.}
-          \resumeItem{REST API for Discussion Forum}
-          {Symphony \& Twig based Forum parts converted to API-first interface.}
-          \resumeItem{Ratchet PHP WebSocket}{Implemented a WebSocket for low-latency real time exchange of posts and thread updates.}
+        \resumeItem{Member of the Simulating eXtreme Spacetimes (SXS) collaboration.}
+        \resumeItem{Developed the SpECTRE software, which can run highly accurate simulations of binary black hole mergers. SpECTRE is still currently under development.}
+        \resumeItem{Updated control systems in the SpEC software which can also run highly accurate simulations of binary black hole mergers.}
       \resumeItemListEnd
-\vspace{-5pt}
+    \resumeSubheading{Shapiro Group, University of Illinois Department of Physics, REU}{May 2018 - July 2020}{Undergraduate Researcher}{}
+    \resumeItemListStart
+        \resumeItem{Created visualizations of highly accurate numerical simulations of compact object mergers.}
+        \resumeItem{Wrote novel code in Python and C++ to visualize quantities using VisIt software and Blue Waters supercomputer.}
+      \resumeItemListEnd
     \resumeSubheading
-		{DataCamp Inc.}{Remote}
-		{Instructor (Part-time, Contractual)}{Dec 2018 -  Present}
+		{Dr. Christopher Powell, Argonne National Laboratory Internship}{May 2017–July 2017}
+		{Undergraduate Researcher}{}
 		\resumeItemListStart
-        \resumeItem{Project Course - Find Movie Similarity from Plot Summaries}
-          {Created project based course using Unsupervised learning and natural language processing.}
-        \resumeItem{Tutorial - Introduction to Reinforcement Learning}
-          {Created tutorial for Q-learning RL algorithm and  concepts.}
-        \resumeItem{Impact}{Course has been taken by 250+ students so far with 4.65 average rating.}
+        \resumeItem{Utilized Advanced Photon Source (X-rays) to record fuel injector spray patterns.}
+        \resumeItem{Generated Python scripts to analyze experimental data for start of injection time; implemented visualizations with Blender software.}
 		\resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
-%-----------PROJECTS-----------------
+%-------------SKILLS-----------------
 \vspace{-5pt}
-\section{Projects}
-\resumeSubHeadingListStart
-\resumeSubItem{Vison - multimedia search engine (NLP, Search Engine, Web Crawlers, Multimedia Processing)}{(Work in progress) Research oriented, open source, search engine for bringing reverse multimedia search to small \& mid scale enterprises. Tech: Python, NodeJS, Intel OpenVino Toolkit, Selenium, TensorFlow (October '18)}
-\vspace{2pt}
-\resumeSubItem{Reinforcement Learning based Traffic Control System (Reinforcement Learning, Computer Vision)}{AI model to resolve city traffic around 50\%
-faster. Tech: Python, Alibaba Cloud, Raspberry Pi, Arduino, SUMO \& OpenCV. (August '18)}
-\vspace{2pt}
-\resumeSubItem{Panorama from Satellite Imagery using Distributed Computing (Distributed Computing, Image Processing)}{Images clicked using drones, provided by ISRO were stitched together using distributed public compute nodes, effectively bringing down processing time exponentially. Tech: PHP, C++, Java, Python (March '18)}
-\vspace{2pt}
-\resumeSubItem{Drag-n-drop machine learning learning environment (Web Development, Machine Learning)}{Scratch like tool for implementing machine learning pipelines along with built in tutorial for each concept. Tech: Python, JavaScript (September '18)}
-\vspace{2pt}
-\resumeSubItem{Search Engine and Social Network(Web Development, Web Crawler, Search)}{Created from scratch a social network and a search engine based on the idea of integrating Facebook and Google. The launched website was among top 1000 websites in India during 2012-2013. Tech: PHP, MySQL, HTML, CSS, WebSockets, JavaScript, RSS, XML ( May '12)}
+\section{Skills Summary}
+	\resumeSubHeadingListStart
+	\resumeSubItem{Languages}{~~~C++, Python, Bash, Perl}
+	\resumeSubItem{Software}{~~~~~~SpECTRE, SpEC, VSCode, \LaTeX, Charm++, GNUPlot, VisIt, Paraview}
+	\resumeSubItem{Tools}{~~~~~~~~~~~GIT/GitHub, Make, CMake, LLVM, GCC, GDB, HPCToolkit}
+	\resumeSubItem{Platforms}{~~~~Linux (Ubuntu, Mint, CentOS, RedHat), Windows, MacOS}
+	\resumeSubItem{Clusters}{~~~~~~Wheeler (Caltech), Caltech HPC (Caltech), Frontera (TACC), Anvil (XSEDE), Expanse (XSEDE), \\~~~~~~~~~~~~~~~~~~~~  Bridges2 (XSEDE), Pleiades (NASA), Ocean (CSUF), Blue Waters (NCSA)}
+
 \resumeSubHeadingListEnd
-\vspace{-5pt}
+
+%-----------AWARDS-----------------
+\section{Honors and Awards}
+\resumeSubHeadingListStart
+    \resumeAward{Rochus E. Vogt Graduate Fellowship}{Fall 2020}{\$36,500}
+    \resumeAward{Excellence in Physics Scholarship}{Spring 2020}{\$3,000}
+    \resumeAward{Anthony Research Scholarship}{Spring 2020}{\$1,000}
+    \resumeAward{Wyatt, Stanley Memorial Award}{Spring 2020}{\$700}
+    \resumeAward{University of Illinois Dean’s List}{August 2016 - May 2020}{Top 20\% in College of Engineering}
+    \resumeAward{Illinois Tool Works Scholarship}{August 2016 - May 2020}{\$1,500 per academic year}
+    \resumeAward{Phi Beta Kappa Honor Society}{2019}{Member}
+    \resumeAward{A.C. Anderson Undergraduate Research Award}{Summer 2018}{}
+
+\resumeSubHeadingListEnd
+
+%---------PUBLICATIONS------------
+\vspace{5pt}
 \section{Publications}
 \resumeSubHeadingListStart
-\resumeSubItem{Book: Deep Learning on Web (Web Development, Deep Learning)}{Work in Progress book to be published by Packt Publishing in late 2019. Tech: Django, Python, AWS, GCP, Azure (November '18)}
-\vspace{2pt}
-\resumeSubItem{Book: Deep Learning on Mobile Devices (Flutter App Development, Deep Learning)}{Work in Progress book to be published by Packt Publishing in late 2019. Tech: Flutter, Android, Firebase, TensorFlow, Python, Dart (December '18)}
+\resumeItem{\normalsize Torelli, R., Matusik, K., Nelli, K., Kastengren, A. et al., "Evaluation of Shot-to-Shot In-Nozzle Flow Variations in a Heavy-Duty
+Diesel Injector Using Real Nozzle Geometry," SAE Int. J. Fuels Lubr. 11(4):379-295, 2018, https://doi.org/10.4271/2018-01-
+0303.}
 \resumeSubHeadingListEnd
 \vspace{-5pt}
-%-----------Awards-----------------
-\section{Honors and Awards}
-\begin{description}[font=$\bullet$]
-\item {Awarded title of Intel Software Innovator - May, 2019}
-\vspace{-5pt}
-\item {Second Runner's Up at TCS EngiNx Engineering Project Innovation Content - September, 2018 }
-\vspace{-5pt}
-\item {Runner's Up at Facebook Developers Circle Hackathon - August, 2017}
 
-\end{description}
-
-\vspace{-5pt}
-\section{Volunteer Experience}
-  \resumeSubHeadingListStart
-	\resumeSubheading
-    {Community Lead at Developer Student Clubs NSEC}{Kolkata, India}
-    {Conducted online and offline technical \& soft-skills training impacting over 3000 students.}{Jan 2019 - Present}
-\vspace{5pt}
-    % \vspace{10pt}\textbf{\large{Community Experience}}
-    \resumeSubheading
-    {Event Organizer at Google Developers Group Kolkata}{Kolkata, India}
-    {Organized events, conducted workshops and delivered workshops reaching over 7000 developers.}{Jan 2018 - Present}
-
-\resumeSubHeadingListEnd
 
 \end{document}
