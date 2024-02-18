@@ -78,6 +78,14 @@
     \vspace{-5pt}
 }
 
+\newcommand{\resumeSubsubheading}[2]{
+  \vspace{-1pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    #1 & \textit{#2}
+    \end{tabular*}
+    \vspace{-5pt}
+}
+
 \newcommand{\resumeEducation}[5]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
@@ -113,7 +121,7 @@
   \textbf{{\LARGE Kyle C. Nelli}}\\
   \href{https://github.com/knelli2}{Github: ~github.com/knelli2} &
    Email: \href{mailto:}{knelli@caltech.edu} \\
-  \href{https://www.linkedin.com/in/kyle-nelli}{LinkedIn: Kyle Nelli} &
+  \href{https://www.linkedin.com/in/kyle-nelli}{LinkedIn: linkedin.com/in/kyle-nelli} &
    Mobile:~~847-494-5028 \\
 \end{tabular*}
 
@@ -133,31 +141,45 @@ Laude and with High Distinction}
 \vspace{-5pt}
 \section{Experience}
   \resumeSubHeadingListStart
-  \resumeSubheading{Teukolsky Group, Caltech}{November 2020 - Present}{Graduate Student}{}
+  \resumeSubheading{Teukolsky Group, Caltech}{November 2020 - Present}{Graduate
+  Research Assistant}{}
     \resumeItemListStart
-\resumeItem{Member of the Simulating eXtreme Spacetimes (SXS) collaboration.}
-\resumeItem{Lead developer/engineer of the SpECTRE software, which is being designed to
-run 
-highly accurate simulations of binary black hole mergers and general
-relativistic magneto-hydro dynamics on HPC and exascale
-machines. Parts of SpECTRE are currently under intense development (GitHub:
-\href{https://github.com/sxs-collaboration/spectre}{github.com/sxs-collaboration/spectre}).}
-\resumeItem{Updated control systems in the Spectral Einstein Code (SpEC)
-software which can also run highly accurate simulations of binary black hole
-mergers. SpEC uses MPI for it's parallelism and has been run on large clusters
+  \resumeItem{Member of the Simulating eXtreme Spacetimes (SXS) collaboration
+  (150+ people).}
+\resumeItem{Updated control loops in the Spectral Einstein Code (SpEC)
+which runs highly accurate simulations of binary black hole
+mergers. SpEC utilizes MPI for it's parallelization and has been run on large clusters
 like Frontera at TACC.} 
       \resumeItemListEnd
+\resumeSubsubheading{Lead \href{https://spectre-code.org/}{SpECTRE} Developer/Engineer}{} 
+    \resumeItemListStart
+  \resumeItem{\href{https://github.com/sxs-collaboration/spectre}{Open-sourced}
+  software designed to run 
+highly accurate simulations of binary black hole mergers and general
+relativistic magneto-hydro dynamics on HPC and exascale machines.}
+  \resumeItem{Visualized $\sim$1TB of output from simulations using Paraview and its
+  python scripting framework.}
+  \resumeItem{Implemented numerous unique and intricate infrastructure changes ranging
+  from low system level ones to overarching high-level ones.}
+  \resumeItem{Expert on utilizing task-based (asynchonous) parallelism to solve
+  partial differential equations on exascale computing resources.}
+  \resumeItem{Expert in modern C++.}
+  \resumeItem{Designed and oversaw several complex student projects. Mentored
+  undergraduate, masters, and other doctoral students in these projects.}
+    \resumeItemListEnd
     \resumeSubheading{Shapiro Group, University of Illinois Department of Physics, REU}{May 2018 - July 2020}{Undergraduate Researcher}{}
     \resumeItemListStart
-        \resumeItem{Created visualizations of highly accurate numerical simulations of compact object mergers.}
-        \resumeItem{Wrote novel code in Python and C++ to visualize quantities using VisIt software and Blue Waters supercomputer.}
+  \resumeItem{Created visualizations of highly accurate numerical simulations of
+  compact object mergers.}
+  \resumeItem{Wrote novel code in Python and C++ to automate visualization using
+  VisIt software and Blue Waters supercomputer.}
       \resumeItemListEnd
     \resumeSubheading
 		{Dr. Christopher Powell, Argonne National Laboratory Internship}{May 2017–July 2017}
 		{Undergraduate Researcher}{}
 		\resumeItemListStart
         \resumeItem{Utilized Advanced Photon Source (X-rays) to record fuel injector spray patterns.}
-        \resumeItem{Generated Python scripts to analyze experimental data for start of injection time; implemented visualizations with Blender software.}
+        \resumeItem{Generated novel Python scripts to analyze experimental data for start of injection time; implemented visualizations with Blender software.}
 		\resumeItemListEnd
 
 \resumeSubHeadingListEnd
