@@ -24,8 +24,48 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-\usepackage{biblatex}
-\bibliography{bibliography.bib}
+% \usepackage[maxbibnames=99,sorting=ydnt]{biblatex}
+\usepackage[maxbibnames=99,sorting=ndymdt]{biblatex}
+
+\DeclareSortingTemplate{ndymdt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  % \sort{
+  %   \field{sortname}
+  %   \field{author}
+  %   \field{editor}
+  %   \field{translator}
+  %   \field{sorttitle}
+  %   \field{title}
+  % }
+  \sort[direction=descending]{
+    \field{sortyear}
+    \field{year}
+    \literal{9999}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{99}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{99}
+  }
+  \sort{
+    \field{sorttitle}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=4,padchar=0]{volume}
+    \literal{9999}
+  }
+}
+
+% \bibliography{bibliography.bib}
+\addbibresource{bibliography.bib}
 \nocite{*}
 
 % Adjust margins
