@@ -7,6 +7,7 @@
 
 \documentclass[a4paper,20pt]{article}
 
+\usepackage[T1]{fontenc}
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -111,10 +112,7 @@
 \newcommand{\resumeSubheading}[4]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-    \end{tabular*}
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-    #3 & \textit{#4} \\
+      \textbf{#1} --- #3 & #2 \\
     \end{tabular*}
     \vspace{-5pt}
 }
@@ -127,7 +125,16 @@
     \vspace{-5pt}
 }
 
-\newcommand{\resumeEducation}[5]{
+\newcommand{\resumeEducationCaltech}[3]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \end{tabular*}
+      #3
+    \vspace{-5pt}
+}
+
+\newcommand{\resumeEducationUIUC}[5]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
@@ -182,56 +189,41 @@ challenges, and experience with simulations will be a major asset to the team at
 Aurora.
 
 
-%-------------SKILLS-----------------
-\vspace{5pt}
-\section{Skills Summary}
-	\resumeSubHeadingListStart
-	\resumeSubItem{Languages}{~~~C++ 20, C, Python, Rust, CUDA, Bash, Perl, YAML}
-	\resumeSubItem{Software}{~~~~~~Visual Studio, VSCode, Blender, VisIt, Paraview, 
-	\LaTeX, GNUPlot, Kokkos}
-	\resumeSubItem{Tools}{~~~~~~~~~~~Git, Docker, Perforce, Jira, Confluence, Make,
-	CMake, Sharpmake, LLVM, GCC, GDB, SLURM}
-  \resumeSubItem{Profilers}{~~~~~~HPCToolkit, Superluminal, Razer CPU/GPU}
-  \resumeSubItem{Parallelism}{~~MPI, OpenMP, Microsoft Conc. Runtime, Charm++}
-	\resumeSubItem{Platforms}{~~~~Linux, MacOS, Windows}
-	% \resumeSubItem{SuperComputers}{\\~~~~~~~~~~~~~~~~~~~~ Wheeler (CPU), Caltech HPC (CPU/GPU),
-	% Perlmutter (GPU) Frontera (CPU), Anvil (CPU), \\~~~~~~~~~~~~~~~~~~~~ Expanse (CPU),
-  % Bridges2 (CPU), NASA Pleiades (CPU/GPU), Blue Waters (CPU)} 
-\resumeSubHeadingListEnd
-
 %-------------EXPERIENCE-----------------
 \vspace{5pt}
 \section{Experience}
   \resumeSubHeadingListStart
   \resumeSubheading{Research Associate, Engineering}{Aug 2025 - Present}{Activision}{}
     \resumeItemListStart
-  \resumeItem{\textbf{Committed 80 Perforce changelists and changed 6500 lines in 5 months}}
+  % \resumeItem{\textbf{Committed 80 Perforce changelists and changed 6500 lines in 5 months}}
   \resumeItem{Implemented remote caching layer to reduce build times of Call of Duty maps.}
   \resumeItem{Developed alternative workflow for level designers to decrease
   iteration time. Included Qt6 GUI, pipeline, and engine code. Communicated with level designers on desired features.}
-  \resumeItem{Restored determinism to modules for building maps.}
+  \resumeItem{Designed determinism validation framework. With this framework, I restored determinism to several modules used when building maps.}
     \resumeItemListEnd
   \resumeSubheading{Lead Software Engineer}{May 2023 - Present}{Caltech}{}
     \resumeItemListStart
-  \resumeItem{Open-source software \href{https://github.com/sxs-collaboration/spectre}{SpECTRE} (750k+
-  lines of C++ 20) designed to run highly accurate simulations
+  \resumeItem{Open-source software \href{https://github.com/sxs-collaboration/spectre}{SpECTRE} designed to run highly accurate simulations
   of black hole collisions on CPUs and GPUs.}
-  \resumeItem{Merged \textbf{480 Pull Requests, added 1,300 commits, and changed 160,000 lines}.}
+  \resumeSubHeadingListStart
+  \resumeItem{Total of 750,000+ lines of C++ 20. Personally merged \textbf{480 Pull Requests, added 1,300 commits, and changed 160,000 lines}.}
+  \resumeItem{\textbf{Organized week-long software tutorial} at collaboration-wide conference to teach users how our code operates.}
+  \resumeItem{Engineered and \textbf{streamlined automated simulation pipeline
+  infrastructure} to greatly enhance user experience.}
+  \resumeSubHeadingListEnd
+  \resumeItem{Designed massivly-parallel asynchronous feedback control system from the ground up.}
+  \resumeSubHeadingListStart
   \resumeItem{Utilized task-based parallelism to
   achieve \textbf{3x speedup} when solving partial differential equations on supercomputers.}
   \resumeItem{Completed entire rewrite of horizon finding infrastructure to
   reduce communication while maintaining performance.}
+  \resumeItem{Implemented detailed memory diagnostics which resulted in \textbf{reduction of memory usage by 5x}.}
+  \resumeSubHeadingListEnd
   % \resumeItem{\textbf{Visualized $\sim$1TB} of output from simulations using Paraview and its
   % Python scripting framework.}
-  \resumeItem{Implemented detailed memory diagnostics which resulted in
-  \textbf{reduction of memory usage by 5x}.}
-  \resumeItem{Engineered and \textbf{streamlined automated simulation pipeline
-  infrastructure} to greatly enhance user experience.}
-  \resumeItem{Instructed undergraduate students on ``best coding practices''.}
-  \resumeItem{\textbf{Organized week-long software tutorial} at
-  collaboration-wide conference.}
-  \resumeItem{Designed and \textbf{oversaw 10 student projects}. Mentored
-  undergraduate, masters, and other doctoral students.}
+  \resumeItem{Mentored undergraduate, masters, and doctoral students on both physics and coding.
+  Designed and \textbf{oversaw 10 student projects} which directly contributed to a publication.
+  Instructed undergraduate students on ``best coding practices''.}
     \resumeItemListEnd
 
   \resumeSubheading{Graduate Research Assistant}{November 2020 -
@@ -261,14 +253,31 @@ Aurora.
 		\resumeItemListEnd
 \resumeSubHeadingListEnd
 
+%-------------SKILLS-----------------
+\vspace{5pt}
+\section{Skills Summary}
+	\resumeSubHeadingListStart
+	\resumeSubItem{Languages}{~~~C++ 20, C, Python, Rust, CUDA, Bash, Perl, YAML}
+	\resumeSubItem{Software}{~~~~~~Visual Studio, VSCode, Blender, VisIt, Paraview, 
+	\LaTeX, GNUPlot, Kokkos}
+	\resumeSubItem{Tools}{~~~~~~~~~~~Git, Docker, Perforce, Jira, Confluence, Make,
+	CMake, Sharpmake, LLVM, GCC, GDB, SLURM}
+  \resumeSubItem{Profilers}{~~~~~~HPCToolkit, Superluminal, Razer CPU/GPU}
+  \resumeSubItem{Parallelism}{~~MPI, OpenMP, Microsoft Conc. Runtime, Charm++}
+	\resumeSubItem{Platforms}{~~~~Linux, MacOS, Windows}
+	% \resumeSubItem{SuperComputers}{\\~~~~~~~~~~~~~~~~~~~~ Wheeler (CPU), Caltech HPC (CPU/GPU),
+	% Perlmutter (GPU) Frontera (CPU), Anvil (CPU), \\~~~~~~~~~~~~~~~~~~~~ Expanse (CPU),
+  % Bridges2 (CPU), NASA Pleiades (CPU/GPU), Blue Waters (CPU)} 
+\resumeSubHeadingListEnd
+
 %-----------EDUCATION-----------------
 \vspace{5pt}
 \section{Education}
   \resumeSubHeadingListStart
-    \resumeSubheading
-      {California Institute of Technology (Caltech), CA}{August 2020 - Present}
-      {Doctorate of Philosophy: \textit{Physics}}{}
-    \resumeEducation
+    \resumeEducationCaltech
+      {California Institute of Technology (Caltech), CA}{August 2020 - June 2026}
+      {Doctorate of Philosophy: \textit{Physics}}
+    \resumeEducationUIUC
       {University of Illinois Urbana-Champaign, IL}{August 2016 - May 2020}
 {Bachelor of Science}{Engineering Physics, Highest Honors}{Astronomy, Summa Cum
 Laude and with High Distinction}
