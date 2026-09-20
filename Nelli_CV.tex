@@ -8,6 +8,9 @@
 \documentclass[a4paper,20pt]{article}
 
 \usepackage[T1]{fontenc}
+\usepackage{lmodern} % real Type 1 fonts, not bitmaps, so text is selectable
+\input{glyphtounicode}
+\pdfgentounicode=1 % make copy/paste and resume scanners get ligatures right
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -176,18 +179,18 @@
 %----------OBJECTIVE-----------------
 
 \section{Objective}
-C++ and Python software engineer with a physics PhD seeking the Senior Software
-Engineer, Simulation role on NVIDIA's Metropolis Synthetic Data Generation team.
-At W\={e}t\={a} FX, I ported a rigid-body hard contacts solver to GPUs with
-Kokkos and profiled the CUDA and OpenMP backends with Nsight. At Activision, I
-worked in a production game engine, writing pipeline, engine, and Qt6 tooling
-for level designers and a determinism validation framework for building maps.
-Across six years at Caltech I led development on a large C++20 simulation
-framework, built the automated pipeline that runs it across distributed
-supercomputers, and shipped it in Docker containers. I have also used Houdini,
-Maya, and Blender for 3D content and visualization. I want to bring that mix of
-3D simulation, GPU performance work, and large-scale pipeline engineering to
-building Digital Twin and synthetic data generation tools for Physical AI.
+C++ and Python software engineer with a physics PhD seeking the Staff Software
+Engineer, USD Authoring role at Walt Disney Animation Studios. At Activision, I
+built pipeline, engine, and Qt6 tooling for Call of Duty level designers,
+working from their workflow to a remote caching layer and a determinism
+framework that cut map build times. Across six years at Caltech I led
+development on a large C++20 codebase, designed core libraries and Python APIs
+from scratch that the rest of the collaboration writes its own tools against,
+and engineered the automated pipeline that runs our simulations across
+distributed supercomputers. At W\={e}t\={a} FX I work inside a Houdini and Maya
+simulation plugin on GPU performance. I would like to bring that mix of core
+infrastructure, artist-facing tooling, and cross-team collaboration to the USD
+scene and asset authoring workflows behind Disney's films.
 
 %----------PROFESSIONAL SUMMARY-----------------
 
@@ -229,8 +232,8 @@ building Digital Twin and synthetic data generation tools for Physical AI.
   Present}{W\={e}t\={a} FX}{Remote Pasadena CA}
     \resumeItemListStart
   \resumeItem{Ported Loki's hard contacts solver from OpenMP and MPI backends to
-  run on GPUs using Kokkos}
-  \resumeItem{Profilied and optimized hard contacts solver for both CUDA and
+  run on GPUs using Kokkos.}
+  \resumeItem{Profiled and optimized hard contacts solver for both CUDA and
   OpenMP backends.}
     \resumeItemListEnd
   \resumeSubheading{Research Associate, Engineering}{Aug 2025 -
